@@ -75,3 +75,9 @@ ggplot(analise_1, aes(x = factor(Ano), y = Total_dividido, group = 1)) +
        y = "Valor Médio Vendido por Loja") +
   theme_minimal()
 
+#Análise - 1:
+# A partir da primeira análise, nota-se que há um crescimento no valor médio vendidos pelas lojas por ano.
+# Entretanto, percebe-se uma leve queda no gráfico no ano 1888.
+# Além disso, vê-se um crescimento significativo no ano de 1889.
+# 1888-1889 > 1884-1885 > 1880-1881 > 1882-1883 > 1886-1887 > 1883-1884 > 1885-1886 > 1881-1882 > 1887-1888
+# Portanto, coclui-se que, apesar da queda em 1888, o valor médio vendido pelas lojas por ano vêm crescendo conforme os anos.
