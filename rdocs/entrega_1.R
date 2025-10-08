@@ -48,6 +48,3 @@ ggplot(analise_1, aes(x = factor(Ano), y = Total)) +
        x = "Ano",
        y = "Receita Média") +
   theme_minimal()
-
-
-
