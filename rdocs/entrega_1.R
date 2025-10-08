@@ -29,22 +29,49 @@ infos_vendas <- read_excel("relatorio_old_town_road.xlsx",
                                       sheet = "infos_vendas")
 infos_produtos <- read_excel("relatorio_old_town_road.xlsx", 
                                       sheet = "infos_produtos")
+
+#Renomeando as Colunas em Comum, para que possa juntá-las
 infos_vendas1 <- rename(infos_vendas, SaleID = Sal3ID)
 infos_produtos1 <- rename(infos_produtos, ItemID = Ite3ID)
+
+#Juntando os Data Frames
 planilha_1 <- inner_join(infos_produtos1, infos_vendas1)
 planilha_final <- inner_join(planilha_1, relatorio_vendas)
-planilha_final$Valor_compra <- planilha_final$UnityPrice * planilha_final$Quantity
-planilha_final$Valor_compra <- planilha_final$Valor_compra * 5.31
+
+#Multiplicando o Preço por Unidade pela Quantidade. Gerando o valor da compra
+planilha_final <- planilha_final %>%
+  mutate(Valor_compra = Quantity * UnityPrice)
+
+#Convertendo os Valores das Moedas
+planilha_final <- planilha_final %>%
+  mutate(Valor_compra = Valor_compra * 5.31)
+
+#Transformando as Datas em Anos
 planilha_final <- planilha_final %>%
   mutate(Ano = year(ymd(Date)))
+
+#Filtrando pelos Anos e Descobrindo a Média
 analise_1 <- planilha_final %>% 
   filter(Ano >= 1880 & Ano <= 1889) %>%
   group_by(Ano) %>%
-  summarise(Total = sum(Valor_compra, na.rm = TRUE)) %>%
+  summarise(Total = sum(Valor_compra)) %>%
   mutate(Total_dividido = Total / 18)
-ggplot(analise_1, aes(x = factor(Ano), y = Total)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Receita total média",
+
+#Fazendo o Gráfico 1
+ggplot(analise_1, aes(x = factor(Ano), y = Total_dividido, group = 1)) +
+#  geom_bar(stat = "identity", fill = "#CC9900") +
+  geom_line(aes(y = Total_dividido), group = 1, color = "#A11D21", size = 1.5) +
+  geom_point(aes(y = Total_dividido), color = "#003366") +
+  labs(title = "Valor Médio Vendido por Loja entre os Anos 1880 e 1889",
        x = "Ano",
-       y = "Receita Média") +
+       y = "Valor Médio Vendido por Loja") +
   theme_minimal()
+
+#Fazendo o Gráfico 2
+ggplot(analise_1, aes(x = factor(Ano), y = Total_dividido, group = 1)) +
+  geom_bar(stat = "identity", fill = "#A11D21") +
+  labs(title = "Valor Médio Vendido por Loja entre os Anos 1880 e 1889",
+       x = "Ano",
+       y = "Valor Médio Vendido por Loja") +
+  theme_minimal()
+
