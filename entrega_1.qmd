@@ -38,14 +38,6 @@ grafico_1
 
 ```
 
-```{r}
-#| label: fig-
-#| fig-cap: "Gráfico "
-
-
-
-```
-
 
 ::: {#quad- layout-align="center" quad-pos="H"}
 ```{=latex}
