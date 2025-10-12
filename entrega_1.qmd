@@ -30,14 +30,6 @@ grafico_1
   A partir da análise do gráfico, pode-se concluir que a receita média vem crescendo significativamente com o passar dos anos. Entretanto, no ano de 1888, nota-se uma queda em tal número. 
   
 ## Análise 2
-```{r}
-#| label: fig-
-#| fig-cap: "Gráfico "
-
-
-
-```
-
 
 ::: {#quad- layout-align="center" quad-pos="H"}
 ```{=latex}
