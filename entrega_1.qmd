@@ -1,6 +1,8 @@
 ---
 # Nome do arquivo PDF gerado na pasta resultado
 output-file: "Entrega 1"
+author: "Lucas de Sousa Cuadros"
+date: "06/10/2025"
 ---
 
 ```{r setup}
@@ -9,15 +11,7 @@ source("rdocs/entrega_1.R")
 ```
 
 ```{r}
-# Rodar apenas uma vez na vida!
-## Instalando o tinytex(pacote apenas)
-### CRAN version
-install.packages('tinytex')
-
-
-## Baixando o tinytex
 library(tinytex)
-tinytex::install_tinytex()
 ```
 
 # Objetivo
@@ -26,9 +20,23 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 
 # Análises
 
-## Análise 1
-
+## Análise 1  
+  Nesta análise, busca-se compreender se houve um aumento ou diminuição na quantidade de receita produzida média ao longo do tempo. Essa análise partirá do cálculo da receita média das lojas nos últimos 10 anos. 
+```{r}
+#| label: fig-
+#| fig-cap: "Gráfico "
+grafico_1
+```  
+  A partir da análise do gráfico, pode-se concluir que a receita média vem crescendo significativamente com o passar dos anos. Entretanto, no ano de 1888, nota-se uma queda em tal número. 
+  
 ## Análise 2
+```{r}
+#| label: fig-
+#| fig-cap: "Gráfico "
+
+
+
+```
 
 ```{r}
 #| label: fig-
