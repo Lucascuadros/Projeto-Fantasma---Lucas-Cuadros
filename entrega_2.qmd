@@ -10,15 +10,7 @@ source("rdocs/entrega_2.R")
 
 
 ```{r}
-# Rodar apenas uma vez na vida!
-## Instalando o tinytex(pacote apenas)
-### CRAN version
-install.packages('tinytex')
-
-
-## Baixando o tinytex
 library(tinytex)
-tinytex::install_tinytex()
 ```
 
 # Objetivo
@@ -27,49 +19,14 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 
 # Análises
 
-## Análise 3
-
-## Análise 4
-
+## Análise 2  
+  Esta análise tem como intuito entender a relação entre as variáveis Peso (em Kg) e Altura (em cm). A partir do gráfico, busca-se notar o comportamento das variáveis.
 ```{r}
-#| label: fig-
-#| fig-cap: "Gráfico "
-
-
-
+#| label: fig-peso_altura
+#| fig-cap: "Gráfico de Dispersão Bivariado (peso/altura)"
+Grafico_dispersao
 ```
-
-
-::: {#quad- layout-align="center" quad-pos="H"}
-```{=latex}
-
-
-
-```
-
-Medidas resumo da 
-:::
-
-
-
-::: {#tbl-modalidades layout-align="center" tbl-pos="H"}
-```{=latex}
-
-
-```
-
-
-:::
-
-
-
-
-$\ref{fig-}$
-
-[@tbl-]
-
-
-[**Quadro** @quad-]
+  Com o gráfico, fica claro o comportamento das variáveis. Isto é, quando uma variável cresce, a outra variável tende a crescer. Isso pode ser facjilmente observado pela linha azul no gráfico, que mostra a reta de regressão (linha de tendência).
 
 
 
