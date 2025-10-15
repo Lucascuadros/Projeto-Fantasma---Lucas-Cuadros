@@ -22,13 +22,13 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 
 ## Análise 1  
   
-  Nesta análise, busca-se compreender se houve um aumento ou diminuição na quantidade de receita produzida média ao longo do tempo. Essa análise partirá do cálculo da receita nos últimos 10 anos (1880 a 1889). 
+  Nesta análise, busca-se compreender se houve um aumento ou diminuição na quantidade de receita produzida, em reais média ao longo do tempo. Essas variáveis são são  quantitativas contínuas. Essa análise partirá do cálculo da receita nos últimos 10 anos (1880 a 1889). Para fazer o gráfico, calculamos a receita total, a partir dasoma de todas as receitas em cada ano, e dividimos cada resultado encontrado pelo número de lojas (18). Assim, obtem-se a média de receitapor ano.
 ```{r}
-#| label: fig-
-#| fig-cap: "Gráfico"
+#| label: fig-grafico
+#| fig-cap: "Gráfico de linha"
 grafico_1
 ```  
-  A partir da análise do gráfico, pode-se concluir que a receita média por loja vem crescendo significativamente com o passar dos anos. Entretanto, no ano de 1888, nota-se uma queda em tal número. 
+  A partir da análise do gráfico de linha, pode-se concluir que a receita média por loja vem crescendo significativamente com o passar dos anos. Tal análise pode ser feita pela visualização da linha, que representa a receita média por ano, que é crescente. Entretanto, no ano de 1888, nota-se uma queda em tal número. 
   
 
 

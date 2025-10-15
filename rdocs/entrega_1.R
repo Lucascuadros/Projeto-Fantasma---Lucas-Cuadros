@@ -69,37 +69,9 @@ analise_1 <- planilha_final %>%
 grafico_1<- ggplot(analise_1) +
   aes(x=factor(Ano), y=Total_dividido, group=1) +
   geom_line(size=1,colour="#A11D21") + geom_point(colour="#A11D21", size=2) +
-  labs(x="Ano", y="Receita Média") +
+  labs(x="Ano", y="Receita Média", title = "Gráfico de Linha (media/ano)") +
   theme_estat()  
 
-#Fazendo a tabela de Vendas por loja
-"tabela_vendas <- ultima_planilha %>%
-  group_by(NameCity) %>%
-  summarise(
-    Quantidade_Vendas = n(),
-    Valor_Total = sum(Valor_compra),
-    Valor_Medio = mean(Valor_compra)) %>%
-  mutate(Valor_Medio = round(Valor_Medio))"
- 
-#Calculando o numero de lojas por cidade
-"tabela_lojas <- ultima_planilha %>%
-  group_by(CityID, NameCity) %>%
-  summarise(
-    Numero_Lojas = n_distinct(StoreID)
-  ) %>%
-  arrange(CityID)"
-
-#Fazendo a tabela de valor total vendido por cidade
-"tabela_vendas_cidade <- ultima_planilha %>%
-  group_by(CityID, NameCity) %>%
-  summarise(
-    Valor_Total = sum(Valor_compra)) %>%
-  arrange(CityID)
-tabela_vendas_cidade <- inner_join(tabela_vendas_cidade, tabela_lojas)"
-
-#Fazendo a tabela de valor médio vendido por loja em cada cidade
-"tabela_media_cidade <- tabela_vendas_cidade %>%
-  mutate(Valor_Medio_cidade = Valor_Total / Numero_Lojas)"
 
 
 
