@@ -20,13 +20,13 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 # Análises
 
 ## Análise 2  
-  Esta análise tem como intuito entender a relação entre as variáveis Peso (em Kg) e Altura (em cm). A partir do gráfico, busca-se notar o comportamento das variáveis.
+  Esta análise tem como intuito entender a relação entre as variáveis Peso (em kg), que é quantitativa contínua, e Altura (em cm), que é quantitativa contínua. A partir do gráfico, busca-se notar o comportamento das variáveis. Para elaborar o gráfico, primeiramente deve-se converter todos os valores desejados. Em seguida, faz-se um gráfico de dispersão bivariado para facilitar a análise.
 ```{r}
-#| label: fig-peso_altura
+#| label: fig-Gráfico
 #| fig-cap: "Gráfico de Dispersão Bivariado (peso/altura)"
 Grafico_dispersao
 ```
-  Com o gráfico, fica claro o comportamento das variáveis. Isto é, quando uma variável cresce, a outra variável tende a crescer. Isso pode ser facjilmente observado pela linha azul no gráfico, que mostra a reta de regressão (linha de tendência).
+  Com o gráfico, fica claro o comportamento das variáveis. Isto é, quando uma variável cresce, a outra variável tende a crescer. Isso pode ser facilmente observado pela linha azul no gráfico, que mostra a reta de regressão (linha de tendência). Portanto, conclui-se que a relação entre Peso e Altura é crescente.
 
 
 

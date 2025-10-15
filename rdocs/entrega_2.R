@@ -43,7 +43,7 @@ Grafico_dispersao <- ggplot(infos_clientes) +
   aes(x = Peso_Kg, y = Altura_cm) +
   geom_point(colour = "#A11D21", size = 3) +
   geom_smooth(method = "lm", se = FALSE, colour = "#003366", linewidth = 1) +
-  labs(
+  labs( title = "Gráfico de Dispersão Bivariado (peso/altura)",
     x = "Peso (Kg)",
     y = "Altura (cm)"
   ) +
