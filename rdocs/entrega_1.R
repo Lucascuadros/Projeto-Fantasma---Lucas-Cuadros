@@ -69,7 +69,7 @@ analise_1 <- planilha_final %>%
 grafico_1<- ggplot(analise_1) +
   aes(x=factor(Ano), y=Total_dividido, group=1) +
   geom_line(size=1,colour="#A11D21") + geom_point(colour="#A11D21", size=2) +
-  labs(x="Ano", y="Receita Média", title = "Gráfico de Linha (media/ano)") +
+  labs(x="Ano", y="Receita Média") +
   theme_estat()  
 
 
