@@ -22,10 +22,10 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 
 ## Análise da Receita Média nos últimos 10 anos  
   
-  Nesta análise, busca-se compreender se houve um aumento ou diminuição na quantidade de receita produzida, em reais média ao longo do tempo. Essas variáveis são são  quantitativas contínuas. Essa análise partirá do cálculo da receita nos últimos 10 anos (1880 a 1889). Para fazer o gráfico, calculamos a receita total, a partir da soma de todas as receitas em cada ano, e dividimos cada resultado encontrado pelo número de lojas (18). Assim, obtem-se a média de receitapor ano.
+  Nesta análise, busca-se compreender se houve um aumento ou diminuição na quantidade de receita produzida, em reais média ao longo do tempo. Essas variáveis são são  quantitativas contínuas. Essa análise partirá do cálculo da receita nos últimos 10 anos (1880 a 1889). Para fazer o gráfico, calculamos a receita total, a partir da soma de todas as receitas em cada ano, e dividimos cada resultado encontrado pelo número de lojas (18). Assim, obtém-se a média de receita por ano.
   
 ```{r}
-#| label: fig-Grafico media-ano
+#| label: fig-Grafico de linha da média por ano
 #| fig-cap: "Gráfico de linha da media por ano"
 
 grafico_1

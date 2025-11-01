@@ -57,11 +57,7 @@ quadro_peso_altura <- infos_clientes %>%
     `Altura - Mediana (cm)` = median(Altura_cm, na.rm = TRUE),
     `Altura - Desvio Padrão (cm)` = sd(Altura_cm, na.rm = TRUE),
     `Altura - Mínimo (cm)` = min(Altura_cm, na.rm = TRUE),
-    `Altura - Máximo (cm)` = max(Altura_cm, na.rm = TRUE),
-    '')
+    `Altura - Máximo (cm)` = max(Altura_cm, na.rm = TRUE)
+  )
 quadro_peso_altura
 
-covariancia <- cov(infos_clientes$Peso_Kg, infos_clientes$Altura_cm)
-var_peso <- 142.25
-var_altura <- 97.38
-covariancia/((var_peso*var_altura)**(1/2))

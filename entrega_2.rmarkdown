@@ -1,0 +1,65 @@
+---
+# Nome do arquivo PDF gerado na pasta resultado
+output-file: "Entrega 2"
+---
+
+```{r setup}
+#| include: false
+source("rdocs/entrega_2.R")
+```
+
+```{r}
+library(tinytex)
+```
+
+
+
+# Objetivo
+
+Esse template foi criado para o alocado conseguir observar como ficaria sua análise o arquivo principal. É daqui que o gerente de projetos irá copiar a análise e inserir no documento principal que gerará o relatório estatístico.
+
+# Análises
+
+## Análise do Comportamento das Variáveis Peso e Altura  
+  Esta análise tem como intuito entender a relação entre as variáveis peso(em kg) e altura(em cm), que são variáveis quantitativas contínuas. para realizar essa análise será necessário um grafico para melhor entendimento visual da distribuição das alturas e idades. Além disso, será apresentado uma tabela para materializar os valores. Para realiza-los foi necessário converter todos os valores para os esperados e relacionar as variáveis.
+
+
+```{r}
+#| label: fig-Grafico
+#| fig-cap: "Gráfico de Dispersão Bivariado de peso por altura"
+Grafico_dispersao
+```
+
+
+  A partir da análise do gráfico é possível identificar um padrão, isso é, quanto maior a altura, maior tende a ser o peso, como esperado. Além disso, percebe-se uma maior concentração de pessoas no centro do gráfico. Tal fator possibilita a análise que maior parte da população tem peso entre 60Kg e 90Kg e altura na faixa de 160cm a 185cm.
+
+
+```{=latex}
+\begin{quadro}[H]
+\centering
+\caption{Medidas resumo das variáveis Peso (kg) e Altura (cm)}
+\label{qua:resumo-antropometricas}
+\begin{tabular}{l r r}
+\hline
+\textbf{Estatística} & \textbf{Altura (cm)} & \textbf{Peso (kg)} \\
+\hline
+Média & 171,48 & 75,26 \\
+Desvio Padrão & 9,87 & 11,93 \\
+Variância & 97,38 & 142,25 \\
+Mínimo & 150,00 & 45,04 \\
+1º Quartil & 164,80 & 66,96 \\
+Mediana & 171,75 & 75,37 \\
+3º Quartil & 178,00 & 83,27 \\
+Máximo & 200,00 & 119,41 \\
+\hline
+\end{tabular}
+\end{quadro}
+```
+
+
+  Com os dados da tabela é possivel vizualizar dados mais fáceis de modo que a interpretação seja facilitada. Por exemplo, a média de altura dos clientes é 171 cm, e o peso médio é 75,26 kg. A análise do gráfico, juntamente com a análise dos dados escritos na tabela é suficiente para concluir que o peso e a Altura são diretamente proporcionais. Além disso, conclui-se, também, que a população tem maior concentração em 171cm e 72,26 kg. Entretanto, há casos em que não seguem a concentração, como exemplo, o peso mínimo e máximo, 45,04 kg e 119,41 kg, e a altura máxima e mínima, 150 cm e 200 cm, respectivamente.
+
+
+
+
+
