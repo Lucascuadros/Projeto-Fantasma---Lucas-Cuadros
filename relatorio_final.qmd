@@ -1,6 +1,5 @@
 ---
 title: "Relatório Old Town Road"
-
 # Nome do documento PDF gerado
 output-file: Relatório Old Town Road
 ---
