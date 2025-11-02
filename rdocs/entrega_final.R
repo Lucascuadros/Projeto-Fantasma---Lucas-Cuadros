@@ -22,6 +22,96 @@ source("rdocs/source/packages.R")
 # de teste depreciados, ou ao menos deixando como comentário. Dê preferência
 # as funções dos pacotes contidos no Tidyverse para realizar suas análises.
 # ---------------------------------------------------------------------------- #
+#Lendo a planilha no excel
+library(readxl)
+relatorio_vendas <- read_excel("relatorio_old_town_road.xlsx")
+infos_vendas <- read_excel("relatorio_old_town_road.xlsx", 
+                           sheet = "infos_vendas")
+infos_produtos <- read_excel("relatorio_old_town_road.xlsx", 
+                             sheet = "infos_produtos")
+infos_cidades <- read_excel("relatorio_old_town_road.xlsx", 
+                            sheet = "infos_cidades")
+infos_lojas <- read_excel("relatorio_old_town_road.xlsx", 
+                          sheet = "infos_lojas")
+
+#Renomeando as Colunas em Comum, para que possa juntá-las
+infos_vendas1 <- rename(infos_vendas, SaleID = Sal3ID)
+infos_produtos1 <- rename(infos_produtos, ItemID = Ite3ID)
+infos_cidades1 <- rename(infos_cidades, CityID = C1tyID)
+infos_lojas1 <- rename(infos_lojas, StoreID = Stor3ID)
+
+#Juntando os Data Frames
+planilha_1 <- inner_join(infos_produtos1, infos_vendas1)
+planilha_final <- inner_join(planilha_1, relatorio_vendas)
+planilha_2 <- inner_join(infos_cidades1, infos_lojas1)
+ultima_planilha <- inner_join(planilha_2, planilha_final)
+
+#Multiplicando o Preço por Unidade pela Quantidade. Gerando o valor da compra
+planilha_final <- planilha_final %>%
+  mutate(Valor_compra = Quantity * UnityPrice)
+
+#Convertendo os Valores das Moedas
+planilha_final <- planilha_final %>%
+  mutate(Valor_compra = Valor_compra * 5.31)
+
+#Transformando as Datas em Anos
+planilha_final <- planilha_final %>%
+  mutate(Ano = year(ymd(Date)))
+
+#Filtrando pelos Anos e Descobrindo a Média
+analise_1 <- planilha_final %>% 
+  filter(Ano >= 1880 & Ano <= 1889) %>%
+  group_by(Ano) %>%
+  summarise(Total = sum(Valor_compra)) %>%
+  mutate(Total_dividido = Total / 18)
+
+#Fazendo o Gráfico 1
+grafico_1<- ggplot(analise_1) +
+  aes(x=factor(Ano), y=Total_dividido, group=1) +
+  geom_line(size=1,colour="#A11D21") + geom_point(colour="#A11D21", size=2) +
+  labs(x="Ano", y="Receita Média") +
+  theme_estat()  
+
+#Lendo a página do Excel
+infos_clientes <- read_excel("relatorio_old_town_road.xlsx", 
+                             sheet = "infos_clientes")
+
+#Fazendo as tranformações necessárias
+infos_clientes$Weight_lbs <- round(infos_clientes$Weight_lbs * 0.45359237,2)
+infos_clientes<- infos_clientes %>%
+  rename(Peso_Kg = Weight_lbs)
+infos_clientes$Height_dm <- round(infos_clientes$Height_dm * 10,2)
+infos_clientes <- infos_clientes %>%
+  rename(Altura_cm = Height_dm)
+
+#Fazendo um gráfiico de dispersão
+Grafico_dispersao <- ggplot(infos_clientes) +
+  aes(x = Peso_Kg, y = Altura_cm) +
+  geom_point(colour = "#A11D21", alpha=0.4, size = 3) +
+  labs(x = "Peso (Kg)", y = "Altura (cm)") +
+  theme_estat()
+
+#Fazendo um quadro
+quadro_peso_altura <- infos_clientes %>%
+  summarise(
+    `Peso - Média (kg)` = mean(Peso_Kg, na.rm = TRUE),
+    `Peso - Mediana (kg)` = median(Peso_Kg, na.rm = TRUE),
+    `Peso - Desvio Padrão (kg)` = sd(Peso_Kg, na.rm = TRUE),
+    `Peso - Mínimo (kg)` = min(Peso_Kg, na.rm = TRUE),
+    `Peso - Máximo (kg)` = max(Peso_Kg, na.rm = TRUE),
+    `Altura - Média (cm)` = mean(Altura_cm, na.rm = TRUE),
+    `Altura - Mediana (cm)` = median(Altura_cm, na.rm = TRUE),
+    `Altura - Desvio Padrão (cm)` = sd(Altura_cm, na.rm = TRUE),
+    `Altura - Mínimo (cm)` = min(Altura_cm, na.rm = TRUE),
+    `Altura - Máximo (cm)` = max(Altura_cm, na.rm = TRUE),
+    '')
+quadro_peso_altura
+
+covariancia <- cov(infos_clientes$Peso_Kg, infos_clientes$Altura_cm)
+var_peso <- 142.25
+var_altura <- 97.38
+covariancia/((var_peso*var_altura)**(1/2))
+
 #Lendo as páginas ainda não lidas
 clientes <- read_excel("relatorio_old_town_road.xlsx", 
                        sheet = "infos_clientes")
@@ -137,7 +227,3 @@ Top_Tend <- ggplot(top_tend) +
   geom_bar(stat = "identity", fill = "#A11D21", width = 0.7) +
   labs(x = "Produto", y = "Quantidade") +
   theme_estat()
-  
-
-
-

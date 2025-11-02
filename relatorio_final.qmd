@@ -7,7 +7,7 @@ output-file: Relatório Old Town Road
 
 ```{r}
 #| include: false
-source("rdocs/source/packages.R")
+source("rdocs/entrega_final.R")
 ```
 
 # Introdução
