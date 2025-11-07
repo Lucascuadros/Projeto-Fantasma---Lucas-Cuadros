@@ -1,5 +1,4 @@
 source("rdocs/source/packages.R")
-
 # ---------------------------------------------------------------------------- #
 
 #        ______   _____  ________      ________ 
@@ -70,8 +69,7 @@ grafico_1<- ggplot(analise_1) +
   aes(x=factor(Ano), y=Total_dividido, group=1) +
   geom_line(size=1,colour="#A11D21") + geom_point(colour="#A11D21", size=2) +
   labs(x="Ano", y="Receita Média") +
-  theme_estat()  
-
+  theme_estat() 
 
 
 

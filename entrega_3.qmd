@@ -20,13 +20,13 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 # Análises
 
 ## Análise da relação entre idade e loja  
-  Esta análise busca vizualizar o comportamento das idades dos clientes de acordo com as lojas da cidade Âmbar Seco. Para vizualizar da melhor forma os dados, serâo esboçados um Gráfico Boxplot e uma Tabela. Dessa forma, a visualização dos dados será facilitada. 
+  Esta análise busca vizualizar o comportamento das idades dos clientes de acordo com as lojas da cidade Âmbar Seco, que são variáveis quantitativa contínia e qualitativa nominal, respectivamente. Para vizualizar da melhor forma os dados, serâo esboçados um Gráfico Boxplot e uma Tabela. Dessa forma, a visualização dos dados será facilitada. 
+  
 ```{r}
 #| label: fig-Boxplot
 #| fig-cap: "Box-plot da idade por loja"
 Boxplot1
 ```
-  A partir da análise do boxplolt, pode-se concluir que a Loja Vendinha Rápida tem um público, majoritariamente, mais velho. Além disso, nota-se que os clientes da Loja Ferraria Seca tendem a ter uma idade mais variada, enquanto isso, a loja banco careca tende a ter um público com a idade na faixa de 30 a 40 anos. 
 
 ```{=latex}
 \begin{quadro}[H]
@@ -42,10 +42,13 @@ Mediana & 34 & 41 & 32,5 & 30,5 \\
 Desvio Padrão & 5,57 & 6,03 & 12,7 & 13,3 \\
 Mínimo & 25 & 30 & 15 & 16 \\
 Máximo & 44 & 49 & 77 & 80 \\
+Variância & 
 \hline
 \end{tabular}
 \end{quadro}
 ```
+  
+  A partir da análise do boxplolt, pode-se concluir que, dentre as 4 lojas e 415 clientes análisados, a Loja Vendinha Rápida tem um público, majoritariamente mais velho. Além disso, nota-se que os clientes da Loja Ferraria Seca tendem a ter uma idade mais variada, enquanto isso, a loja banco careca tende a ter um público com a idade na faixa de 30 a 40 anos.
   Com a apresentação dessa tabela, pode-se visualizar os dados de uma melhor forma. Através dela, pode-se concluir que as lojas são ordenadas, por idade, em ordem crescente da seguinte forma: Ferraria seca, Saloon, Banco Careca e Vendinha rápida. Entretanto, o cliente com maior idade frequenta a loja Ferraria Seca. Portanto, conclui-se que a loja que mais atrái o público de maior idade é a loja Vendinha rápida, e a loja que o público de menor idade frequenta é a Ferraria Seca.
 
 

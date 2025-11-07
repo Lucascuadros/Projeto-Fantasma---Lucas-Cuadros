@@ -26,7 +26,6 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 #| fig-cap: "Gráfico de Dispersão Bivariado de peso por altura"
 Grafico_dispersao
 ```
-  A partir da análise do gráfico é possível identificar um padrão, isso é, quanto maior a altura, maior tende a ser o peso, como esperado. Além disso, percebe-se uma maior concentração de pessoas no centro do gráfico. Tal fator possibilita a análise que maior parte da população tem peso entre 60Kg e 90Kg e altura na faixa de 160cm a 185cm.
 ```{=latex}
 \begin{quadro}[H]
 \centering
@@ -48,6 +47,8 @@ Máximo & 200,00 & 119,41 \\
 \end{tabular}
 \end{quadro}
 ```
+  
+  A partir da análise do gráfico é possível identificar um padrão, isso é, quanto maior a altura, maior tende a ser o peso, como esperado. Além disso, percebe-se uma maior concentração de pessoas no centro do gráfico. Tal fator possibilita a análise que maior parte da população tem peso entre 60Kg e 90Kg e altura na faixa de 160cm a 185cm.
   Com os dados da tabela é possivel vizualizar dados mais fáceis de modo que a interpretação seja facilitada. Por exemplo, a média de altura dos clientes é 171 cm, e o peso médio é 75,26 kg. A análise do gráfico, juntamente com a análise dos dados escritos na tabela é suficiente para concluir que o peso e a Altura são diretamente proporcionais. Além disso, conclui-se, também, que a população tem maior concentração em 171cm e 72,26 kg. Entretanto, há casos em que não seguem a concentração, como exemplo, o peso mínimo e máximo, 45,04 kg e 119,41 kg, e a altura máxima e mínima, 150 cm e 200 cm, respectivamente.
 
 
