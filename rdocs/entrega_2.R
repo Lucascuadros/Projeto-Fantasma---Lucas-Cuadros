@@ -59,5 +59,3 @@ quadro_peso_altura <- infos_clientes %>%
     `Altura - Mínimo (cm)` = min(Altura_cm, na.rm = TRUE),
     `Altura - Máximo (cm)` = max(Altura_cm, na.rm = TRUE),
     '')
-quadro_peso_altura
-pearson <- cor(infos_clientes$Peso_kg, infos_clientes$Altura_cm)
