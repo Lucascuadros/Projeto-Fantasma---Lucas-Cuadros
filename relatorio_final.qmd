@@ -13,9 +13,9 @@ source("rdocs/entrega_final.R")
 
 Com o objetivo de oferecer uma visão ampla e estratégica sobre o desempenho das lojas e o perfil dos clientes na região analisada, este relatório apresenta quatro estudos estatísticos complementares desenvolvidos a partir do banco de dados disponibilizado. As análises buscam gerar insights que apoiem decisões comerciais e operacionais, com base em evidências quantitativas.
 
-A primeira análise aborda a receita média das lojas entre os anos de 1880 e 1889, convertendo os valores para reais a partir da cotação de R\$ 5,31 por dólar. Esse estudo permite compreender a evolução do faturamento médio ao longo da década e identificar tendências de crescimento ou retração no período.
+A primeira análise aborda a receita média das lojas entre os anos de 1880 e 1889, convertendo os valores para reais a partir da cotação de R$ 5,31 por dólar. Esse estudo permite compreender a evolução do faturamento médio ao longo da década e identificar tendências de crescimento ou retração no período.
 
-Em seguida, é investigada a relação entre peso e altura dos clientes, com o intuito de avaliar, a um nível de significância de 5%, se existe correlação estatisticamente relevante entre essas variáveis. Essa análise possibilita entender melhor padrões físicos entre os consumidores e eventuais implicações para segmentações de mercado.
+Em seguida, é investigada a relação entre peso e altura dos clientes, com o intuito de avaliar, se existe correlação estatisticamente relevante entre essas variáveis. Essa análise possibilita entender melhor padrões físicos entre os consumidores e eventuais implicações para segmentações de mercado.
 
 A terceira etapa examina o perfil etário dos clientes na cidade de Âmbar Seco, destacando as diferenças de idade média e distribuição etária entre as lojas locais. Essa visão detalhada contribui para identificar o público predominante em cada estabelecimento e orientar estratégias de atendimento e comunicação.
 
@@ -195,11 +195,30 @@ As variáveis quantitativas são as variáveis numéricas, que representam carac
 -   **Discretas**: quando os possíveis valores são enumeráveis (exemplos: número de filhos, número de cigarros fumados, etc)
 -   **Contínuas**: quando os possíveis valores são resultado de medições (exemplos: massa, altura, tempo, etc)
 
+### Coeficiente de Correlação de Pearson
+
+O coeficiente de correlação de Pearson é uma medida que verifica o grau de relação linear entre duas variáveis quantitativas. Este coeficiente varia entre os valores -1 e 1. O valor zero significa que não há relação linear entre as variáveis. Quando o valor do coeficiente $r$ é negativo, diz-se existir uma relação de grandeza inversamente proporcional entre as variáveis. Analogamente, quando $r$ é positivo, diz-se que as duas variáveis são diretamente proporcionais.
+
+O coeficiente de correlação de Pearson é normalmente representado pela letra $r$ e a sua fórmula de cálculo é:
+
+$$
+r_{Pearson} = \frac{\displaystyle \sum_{i=1}^{n} \left [ \left(x_i-\bar{x}\right) \left(y_i-\bar{y}\right) \right]}{\sqrt{\displaystyle \sum_{i=1}^{n} x_i^2 - n\bar{x}^2}  \times \sqrt{\displaystyle \sum_{i=1}^{n} y_i^2 - n\bar{y}^2}}
+$$
+
+Onde:
+
+-   $x_i =$ i-ésimo valor da variável $X$
+-   $y_i =$ i-ésimo valor da variável $Y$
+-   $\bar{x} =$ média dos valores da variável $X$
+-   $\bar{y} =$ média dos valores da variável $Y$
+
+Vale ressaltar que o coeficiente de Pearson é paramétrico e, portanto, sensível quanto à normalidade (simetria) dos dados.
+
 # Análises
 
 ## Análise da Receita Média nos últimos 10 anos
 
-Nesta análise, busca-se compreender se houve um aumento ou diminuição na quantidade de receita produzida, em reais média ao longo do tempo. Essas variáveis são são quantitativas contínuas. Essa análise partirá do cálculo da receita nos últimos 10 anos (1880 a 1889). Para analisarmos o comportamento das variáveis, faremos um gráfico de linha. E, para isso, calculamos a receita total, a partir da soma de todas as receitas em cada ano, e dividimos cada resultado encontrado pelo número de lojas (18). Assim, obtém-se a média de receita por ano.
+Nesta análise, busca-se compreender se houve um aumento ou diminuição na quantidade de receita produzida, em reais média ao longo do tempo. Essas variáveis são quantitativa contínua e discreta, respectivamente. Essa análise partirá do cálculo da receita nos últimos 10 anos (1880 a 1889). Para analisarmos o comportamento das variáveis, faremos um gráfico de linha. E, para isso, calculamos a receita total, a partir da soma de todas as receitas em cada ano, e dividimos cada resultado encontrado pelo número de lojas (18). Assim, obtém-se a média de receita por ano.
 
 ```{r}
 #| label: fig-Grafico_de_Linha
@@ -208,11 +227,11 @@ Nesta análise, busca-se compreender se houve um aumento ou diminuição na quan
 grafico_1
 ```
 
-A partir da análise do $\ref{fig-Grafico_de_Linha}$ de linha, pode-se concluir que a receita média por loja vem crescendo significativamente com o passar dos anos. Tal análise pode ser feita com visualização da linha, que representa a receita média por ano, que é crescente. Com isso, nota-se que Entretanto, no ano de 1888, nota-se uma queda em tal número. Vale notar que o maior crescimento foi do ano de 1888 e 1889, ou seja, o método de venda que utilizaram para esse ano teve um sucesso muito grande.
+A partir da análise do $\ref{fig-Grafico_de_Linha}$ de linha, pode-se concluir que a receita média por loja vem crescendo significativamente com o passar dos anos. Tal análise pode ser feita com visualização da linha, que representa a receita média por ano, que é crescente. Entretanto, no ano de 1888, nota-se uma queda em tal número. Vale notar que o maior crescimento foi do ano de 1888 e 1889, ou seja, o método de venda que utilizaram para esse ano teve um sucesso muito grande.
 
 ## Análise do Comportamento das Variáveis Peso e Altura
 
-Esta análise tem como intuito entender a relação entre as variáveis peso(em kg) e altura(em cm), que são variáveis quantitativas contínuas. Para realizar essa análise será necessário um grafico para melhor entendimento visual da distribuição das alturas e idades. Além disso, será apresentado uma tabela para materializar os valores. Para realiza-los foi necessário converter todos os valores para os esperados e relacionar as variáveis.
+Esta análise tem como intuito entender a relação entre as variáveis peso(em kg) e altura (em cm), que são variáveis quantitativas contínuas. Para realizar essa análise será necessário um grafico para melhor entendimento visual da distribuição das alturas e idades. Além disso, será apresentado uma tabela para materializar os valores. Para realiza-los foi necessário converter todos os valores para os esperados e relacionar as variáveis.
 
 ```{r}
 #| label: fig-Grafico_Dispersao
@@ -225,26 +244,48 @@ A partir da análise do $\ref{fig-Grafico_Dispersao}$ é possível identificar u
 ```{=latex}
 \begin{quadro}[H]
 \centering
-\caption{Medidas resumo das variáveis Peso (kg) e Altura (cm)}
+\caption{Medidas resumo das variáveis Altura (cm)}
 \label{qua:resumo-antropometricas}
-\begin{tabular}{l r r}
+\begin{tabular}{|l|r|}
 \hline
-\textbf{Estatística} & \textbf{Altura (cm)} & \textbf{Peso (kg)} \\
+\textbf{Estatística} & \textbf{Altura (cm)} \\
 \hline
-Média & 171,48 & 75,26 \\
-Desvio Padrão & 9,87 & 11,93 \\
-Variância & 97,38 & 142,25 \\
-Mínimo & 150,00 & 45,04 \\
-1º Quartil & 164,80 & 66,96 \\
-Mediana & 171,75 & 75,37 \\
-3º Quartil & 178,00 & 83,27 \\
-Máximo & 200,00 & 119,41 \\
+Média & 171,48 \\
+Desvio Padrão & 9,87 \\
+Variância & 97,38 \\
+Mínimo & 150,00 \\
+1º Quartil & 164,80 \\
+Mediana & 171,75 \\
+3º Quartil & 178,00 \\
+Máximo & 200,00 \\
 \hline
 \end{tabular}
 \end{quadro}
 ```
 
-Com os dados da tabela é possivel vizualizar dados mais fáceis de modo que a interpretação seja facilitada. Por exemplo, a média de altura dos clientes é 171 cm, e o peso médio é 75,26 kg. A análise do gráfico, juntamente com a análise dos dados escritos na tabela é *suficiente para concluir* que o peso e a Altura são diretamente proporcionais. Além disso, conclui-se, também, que a população tem maior concentração em 171cm e 72,26 kg. Entretanto, há casos em que não seguem a concentração, como exemplo, o peso mínimo e máximo, 45,04 kg e 119,41 kg, e a altura máxima e mínima, 150 cm e 200 cm, respectivamente. Além disso, com o cálculo da correlação de spearman, tem-se que as variáveis são fortemente correlacionadas. sendo mais específico, com um índice de aproximadamente 0,7.
+```{=latex}
+\begin{quadro}[H]
+\centering
+\caption{Medidas resumo das variáveis Peso (kg)}
+\label{qua:resumo-antropometricas}
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Estatística} & \textbf{Peso (kg)} \\
+\hline
+Média & 75,26 \\
+Desvio Padrão & 11,93 \\
+Variância & 142,25 \\
+Mínimo & 45,04 \\
+1º Quartil & 66,96 \\
+Mediana & 75,37 \\
+3º Quartil & 83,27 \\
+Máximo & 119,41 \\
+\hline
+\end{tabular}
+\end{quadro}
+```
+
+Com os dados acima apresentados é possivel vizualizar dados mais facilmente de modo que a interpretação seja facilitada. Por exemplo, a média de altura dos clientes é 171 cm, e o peso médio é 75,26 kg. A análise do gráfico, juntamente com a análise dos dados escritos no quadro dá indicios que existe uma correlação entre o peso e a Altura. Além disso, a população tem maior concentração em 171cm e 72,26 kg. Entretanto, há casos em que não seguem a concentração, como exemplo, o peso mínimo e máximo, 45,04 kg e 119,41 kg, e a altura máxima e mínima, 150 cm e 200 cm, respectivamente. Além disso, com o cálculo da correlação de pearson, tem-se que as variáveis tem uma correlação moderada a forte. Sendo mais específico, com um coeficiente igual a $\rho = 0,697$.
 
 ## Análise da relação entre idade e loja
 
@@ -263,7 +304,7 @@ A partir da análise do $\ref{fig-Boxplot}$, pode-se concluir que, dentre as 4 l
 \centering
 \caption{Medidas resumo das variáveis idade(em anos) e loja}
 \label{qua:resumo-antropometricas}
-\begin{tabular}{l r r r r}
+\begin{tabular}{|l|r|r|r|r|}
 \hline
 \textbf{Estatística} & \textbf{Banco Careca} & \textbf{Vendinha Rápida} & \textbf{Saloon} & \textbf{Ferraria Seca} \\
 \hline
@@ -278,7 +319,7 @@ Variância & 31,1 & 36,4 & 161 & 177 \\
 \end{quadro}
 ```
 
-Com a apresentação dessa tabela, pode-se visualizar os dados de uma melhor forma. Através dela, pode-se concluir que as lojas são ordenadas, por idade, em ordem crescente da seguinte forma: Ferraria seca, Saloon, Banco Careca e Vendinha rápida. Entretanto, o cliente com maior idade frequenta a loja Ferraria Seca. Portanto, conclui-se que a loja que mais atrái o público de maior idade é a loja Vendinha rápida, e a loja que o público de menor idade frequenta é a Ferraria Seca.
+Com isso, pode-se visualizar os dados de uma melhor forma. Através do quadro, pode-se concluir que as lojas são ordenadas, por idade, em ordem crescente da seguinte forma: Ferraria seca, Saloon, Banco Careca e Vendinha rápida. Entretanto, o cliente com maior idade frequenta a loja Ferraria Seca. Portanto, conclui-se que a loja que mais atrái o público de maior idade é a loja Vendinha rápida, e a loja que o público de menor idade frequenta é a Ferraria Seca.
 
 ## Análise das Top 3 Lojas e Top 3 produtos em 1889
 
@@ -290,41 +331,29 @@ A Partir dessa análise, procura-se descobrir as 3 lojas com maior receita no an
 Top_Lojas
 ```
 
-Com o $\ref{fig-top_lojas}$, pode se concluir que as 3 lojas com maior receita são, respectivamente, Loja Ouro Fino (197312,50 reais), Loja TendTudo (196340,30 reais) e Ferraria Apache (181689,10 reais). A partir dessa análise, pode-se realizar as análises individuais por loja. Essas tres lojas são responsáveis por x% da receita total no ano de 1889.
+Com o $\ref{fig-top_lojas}$, pode se concluir que as 3 lojas com maior receita são, respectivamente, Loja Ouro Fino (197312,50 reais), Loja TendTudo (196340,30 reais) e Ferraria Apache (181689,10 reais). A partir dessa análise, pode-se realizar as análises individuais por loja. Essas tres lojas são responsáveis por 20,62% da receita total no ano de 1889.
 
 ```{r}
-#| label: fig-ouro
-#| fig-cap: "Top 3 produtos Loja Ouro Fino"
-Top_Ouro
+#| label: fig-colbi
+#| fig-cap: "Top 3 produtos Lojas"
+kobe
 ```
 
-Com o $\ref{fig-ouro}$, nota-se que, na loja que têm maior receita, o produto mais vendido foi a bota de couro, com 52 unidades vendidas, gerando uma receita de 12115,56 reais, o que representa 6,14% da receita total da Loja nesse ano. Já o segundo produto mais vendido, foi o whisky, com 49 unidades vendidas, gerando uma receita de 2643,53 reais, o que representa 1,34% da receita total da Loja nesse ano. E, por fim, terceiro produto mais vendido foi o chapéu de couro, com 45 unidades vendidas, gerando uma receita de 6623,69 reais, o que representa 3,36% da receita total da Loja nesse ano.
+Com o $\ref{fig-colbi}$, nota-se que, na loja que têm maior receita, o produto mais vendido foi a bota de couro, com 52 unidades vendidas, gerando uma receita de 12115,56 reais, o que representa 6,14% da receita total da Loja nesse ano. Já o segundo produto mais vendido, foi o whisky, com 49 unidades vendidas, gerando uma receita de 2643,53 reais, o que representa 1,34% da receita total da Loja nesse ano. E, por fim, terceiro produto mais vendido foi o chapéu de couro, com 45 unidades vendidas, gerando uma receita de 6623,69 reais, o que representa 3,36% da receita total da Loja nesse ano.
 
-```{r}
-#| label: fig-tend
-#| fig-cap: "Top 3 produtos Loja TendTudo"
-Top_Tend
-```
+Além disso, nota-se que, na loja que têm a segunda maior receita, o produto mais vendido foi a Espingarda, com 53 unidades vendidas, gerando uma receita de 52143,35 reais, o que representa 26,56% da receita total da Loja nesse ano. Já o segundo produto mais vendido, foi o whisky, com 49 unidades vendidas, gerando uma receita de 2643,53 reais, o que representa 1,35% da receita total da Loja nesse ano. E, por fim, terceiro produto mais vendido foi a Colt .45, com 43 unidades vendidas, gerando uma receita de 34598,84 reais, o que representa 17,63% da receita total da Loja nesse ano.
 
-Com o $\ref{fig-tend}$, nota-se que, na loja que têm a segunda maior receita, o produto mais vendido foi a Espingarda, com 53 unidades vendidas, gerando uma receita de 52143,35 reais, o que representa 26,56% da receita total da Loja nesse ano. Já o segundo produto mais vendido, foi o whisky, com 49 unidades vendidas, gerando uma receita de 2643,53 reais, o que representa 1,35% da receita total da Loja nesse ano. E, por fim, terceiro produto mais vendido foi a Colt .45, com 43 unidades vendidas, gerando uma receita de 34598,84 reais, o que representa 17,63% da receita total da Loja nesse ano.
-
-```{r}
-#| label: fig-ferraria
-#| fig-cap: "Top 3 produtos Ferraria Apache "
-Top_Ferraria
-```
-
-Com o $\ref{fig-ferraria}$, nota-se que têm quatro produtos. Isso deu-se, pois o número de unidades vendidas dos produtos Machado e Whisky foram iguais (41).Enfim, na loja que têm a terceira maior receita, o produto mais vendido foi o Chapéu de Couro, com 52 unidades vendidas, gerando uma receita de 7654,04 reais, o que representa 4,21% da receita total da Loja nesse ano. Já o segundo produto mais vendido, foi a espingarda, com 42 unidades vendidas, gerando uma receita de 41321,14 reais, o que representa 22,74% da receita total da Loja nesse ano. E, por fim, os dois produtos com mesma quantidade foram o Whisky, com 41 unidades vendidas, gerando uma receita de 2211,93 reais, o que representa 1,22% da receita totalda Loja nesse ano, e o Machado, com 41 unidades vendidas, gerando uma receita de 3864,35 reais, o que representa 2,13% da receita totalda Loja nesse ano.
+Por fim, nota-se que têm quatro produtos. Isso deu-se, pois o número de unidades vendidas dos produtos Machado e Whisky foram iguais (41).Enfim, na loja que têm a terceira maior receita, o produto mais vendido foi o Chapéu de Couro, com 52 unidades vendidas, gerando uma receita de 7654,04 reais, o que representa 4,21% da receita total da Loja nesse ano. Já o segundo produto mais vendido, foi a espingarda, com 42 unidades vendidas, gerando uma receita de 41321,14 reais, o que representa 22,74% da receita total da Loja nesse ano. E, por fim, os dois produtos com mesma quantidade foram o Whisky, com 41 unidades vendidas, gerando uma receita de 2211,93 reais, o que representa 1,22% da receita totalda Loja nesse ano, e o Machado, com 41 unidades vendidas, gerando uma receita de 3864,35 reais, o que representa 2,13% da receita totalda Loja nesse ano.
 
 # Conclusões
 
 Com base nas análises realizadas, foi possível obter uma compreensão mais ampla e fundamentada sobre o desempenho das lojas, o comportamento dos clientes e os produtos que mais se destacaram no período avaliado.
 
-A avaliação da receita média entre 1880 e 1889 possibilitou identificar a trajetória financeira das lojas ao longo da década, apontando variações relevantes que podem servir de referência para o planejamento estratégico e a gestão de desempenho futuro.
+A avaliação da receita média entre 1880 e 1889 possibilitou identificar a trajetória financeira das lojas ao longo da década, apontando um crescimento significativo, nio geral. EWntretanto, houve uma queda na receita no ano de 1888. Tais análises são de extrema relevância e podem servir de referência para o planejamento estratégico e a gestão de desempenho futuro.
 
-A análise da relação entre peso e altura dos clientes, conduzida com rigor estatístico, com o intuito de avaliar, se existe correlação estatisticamente relevante entre essas variáveis, permitiu oferecer uma visão adicional sobre o perfil físico do público atendido e suas possíveis implicações.
+A análise da relação entre peso e altura dos clientes, conduzida com rigor estatístico, com o intuito de avaliar, se existe correlação estatisticamente relevante entre essas variáveis, apontou que há uma correlação de pearson igual a $\rho = 0,697$. Tal análise permitiu oferecer uma visão adicional sobre o perfil físico do público atendido e suas possíveis implicações.
 
-Na sequência, o estudo sobre a idade dos clientes em Âmbar Seco trouxe informações valiosas sobre o perfil demográfico dos consumidores de cada loja, permitindo identificar diferenças de público e oportunidades de adaptação para certo público alvo.
+Na sequência, o estudo sobre a idade dos clientes em Âmbar Seco trouxe informações valiosas sobre o perfil demográfico dos consumidores de cada loja, como o perfil etário de cada loja. Permitindo identificar diferenças de público e oportunidades de adaptação para certo público alvo.
 
 Por fim, a identificação dos produtos mais vendidos nas lojas com maior receita em 1889 destacou quais itens tiveram papel mais relevante na composição das vendas, podendo acarretar em promoções e decisões comerciais mais assertivas.
 

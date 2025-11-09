@@ -1,5 +1,4 @@
 source("rdocs/source/packages.R")
-
 # ---------------------------------------------------------------------------- #
 
 #        ______   _____  ________      ________ 
@@ -51,7 +50,6 @@ planilha_final <- planilha_final %>%
 
 planilha_final <- planilha_final %>%
   mutate(Ano = year(ymd(Date)))
-
 
 analise_1 <- planilha_final %>% 
   filter(Ano >= 1880 & Ano <= 1889) %>%
@@ -153,13 +151,14 @@ receita_por_loja <- God_1889 %>%
 receita_1889 <- God_1889 %>%
   summarise(receita_1889 = sum(Valor_compra))
 
+top3_lojas <- receita_por_loja %>%
+  slice_head(n = 3)
+
 receita_top <- top3_lojas %>%
   summarise(receita_top = sum(Receita_Loja))
 
 percentual_1889 <- ((receita_top/receita_1889)*100)
 
-top3_lojas <- receita_por_loja %>%
-  slice_head(n = 3)
 
 GOD <- God_1889 %>%
   filter(StoreID %in% top3_lojas$StoreID)
@@ -205,7 +204,7 @@ Fim <- data.frame(
 kobe <- ggplot(Fim, aes(x = Loja, y = Quantidade, fill = Produto)) +
   geom_col(position = position_dodge(width = 0.9)) +
   geom_text(aes(label = Quantidade),
-            position = position_dodge(width = 9),
+            position = position_dodge(width = 0.9),
             vjust = -0.5, hjust = 0.5, size = 3.5) +
   labs(x = "Loja", y = "Produtos vendidos", fill = "Produto") +
   theme_estat()
