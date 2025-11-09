@@ -60,8 +60,4 @@ quadro_peso_altura <- infos_clientes %>%
     `Altura - Máximo (cm)` = max(Altura_cm, na.rm = TRUE),
     '')
 quadro_peso_altura
-
-covariancia <- cov(infos_clientes$Peso_Kg, infos_clientes$Altura_cm)
-var_peso <- 142.25
-var_altura <- 97.38
-covariancia/((var_peso*var_altura)**(1/2))
+pearson <- cor(infos_clientes$Peso_kg, infos_clientes$Altura_cm)

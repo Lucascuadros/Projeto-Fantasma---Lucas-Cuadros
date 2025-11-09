@@ -81,6 +81,14 @@ receita_por_loja <- God_1889 %>%
   summarise(Receita_Loja = sum(Valor_compra)) %>%
   arrange(desc(Receita_Loja))
 
+receita_1889 <- God_1889 %>%
+  summarise(receita_1889 = sum(Valor_compra))
+
+receita_top <- top3_lojas %>%
+  summarise(receita_top = sum(Receita_Loja))
+
+percentual_1889 <- ((receita_top/receita_1889)*100)
+
 top3_lojas <- receita_por_loja %>%
   slice_head(n = 3)
 
@@ -110,34 +118,29 @@ Top_Lojas <- ggplot(top3_lojas) +
   geom_bar(stat = "identity", fill = "#A11D21", width = 0.7) +
   labs(x = "Loja", y = "Receita") +
   theme_estat()
-
-top_tend <- GOD %>%
-  filter(StoreID == 5)
-
-top_ferraria1 <- GOD %>%
-  filter(StoreID == 17)
-
-top_ouro <- GOD %>%
+  
+ouro <- GOD %>%
   filter(StoreID == 7)
 
-Top_Ferraria <- ggplot(top_ferraria1) +
-  aes(x = NameProduct, y = Quantidade_Total) +
-  geom_bar(stat = "identity", fill = "#A11D21", width = 0.7) +
-  labs(x = "Produto", y = "Quantidade") +
+tend <- GOD %>%
+  filter(StoreID == 5)
+
+ferraria <- GOD %>%
+  filter(StoreID == 17)
+
+Fim <- data.frame(
+  Loja = c(rep("Ouro Fino", 3), rep("TendTudo", 3), rep("Ferraria Apache", 4)),
+  Produto = c("Botas de Couro", "Whisky", "Chapéu de Couro", "Espingarda", "Whisky", "Colt.45", "Chapéu de Couro", "Espingarda", "Machado", "Whisky"),
+  Quantidade = c(52, 49, 45, 53, 49, 43, 52, 42, 41, 41))
+
+kobe <- ggplot(Fim, aes(x = Loja, y = Quantidade, fill = Produto)) +
+  geom_col(position = position_dodge(width = 0.9)) +
+  geom_text(aes(label = Quantidade),
+            position = position_dodge(width = 9),
+            vjust = -0.5, hjust = 0.5, size = 3.5) +
+  labs(x = "Loja", y = "Produtos vendidos", fill = "Produto") +
   theme_estat()
 
-Top_Ouro <- ggplot(top_ouro) +
-  aes(x = NameProduct, y = Quantidade_Total) +
-  geom_bar(stat = "identity", fill = "#A11D21", width = 0.7) +
-  labs(x = "Produto", y = "Quantidade") +
-  theme_estat()
-
-Top_Tend <- ggplot(top_tend) +
-  aes(x = NameProduct, y = Quantidade_Total) +
-  geom_bar(stat = "identity", fill = "#A11D21", width = 0.7) +
-  labs(x = "Produto", y = "Quantidade") +
-  theme_estat()
-  
 
 
 

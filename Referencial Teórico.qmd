@@ -1,9 +1,3 @@
----
-title: "Referencial Teórico"
----
-
-# Análise Descritiva Univariada
-
 ## Frequência Relativa
 
 A frequência relativa é utilizada para a comparação entre classes de uma variável categórica com $c$ categorias, ou para comparar uma mesma categoria em diferentes estudos.
@@ -25,19 +19,16 @@ Com:
 Geralmente, a frequência relativa é utilizada em porcentagem, dada por:
 
 $$100 \times f_j$$
-
 ## Média
 
 A média é a soma das observações dividida pelo número total delas, dada pela fórmula:
 
 $$\bar{X}=\frac{\sum\limits_{i=1}^{n}X_i}{n}$$
-
 Com:
 
 -   $i = 1, \, 2, \, ..., \, n$
 
 -   $n =$ número total de observações
-
 ## Mediana
 
 Sejam as $n$ observações de um conjunto de dados $X=X_{(1)},X_{(2)},\ldots, X_{(n)}$ de determinada variável ordenadas de forma crescente. A mediana do conjunto de dados $X$ é o valor que deixa metade das observações abaixo dela e metade dos dados acima.
@@ -51,21 +42,6 @@ med(X) =
          \frac{X_{\frac{n}{2}}+X_{\frac{n}{2} + 1}}{2}, \textrm{para n par} \\
     \end{cases}
 $$
-
-## Quartis
-
-Os quartis são separatrizes que dividem o conjunto de dados em quatro partes iguais. O primeiro quartil (ou inferior) delimita os 25% menores valores, o segundo representa a mediana, e o terceiro delimita os 25% maiores valores. Inicialmente deve-se calcular a posição do quartil:
-
--   Posição do primeiro quartil $P_1$: $$P_1=\frac{n+1}{4}$$
-
--   Posição da mediana (segundo quartil) $P_2$: $$P_2 = \frac{n+1}{2}$$
-
--   Posição do terceiro quartil $P_3$: $$P_3=\frac{3 \times (n+1)}{4}$$
-
-Com $n$ sendo o tamanho da amostra. Dessa forma, $X_{\left( P_i \right)}$ é o valor do $i$-ésimo quartil, onde $X_{\left( j \right)}$ representa a $j$-ésima observação dos dados ordenados.
-
-Se o cálculo da posição resultar em uma fração, deve-se fazer a média entre o valor que está na posição do inteiro anterior e do seguinte ao da posição.
-
 ## Variância
 
 A variância é uma medida que avalia o quanto os dados estão dispersos em relação à média, em uma escala ao quadrado da escala dos dados.
@@ -84,20 +60,31 @@ Com:
 
 -   $N =$ tamanho da população
 
-### Variância Amostral
+## Quartis
 
-Para uma amostra, a variância é dada por:
+Os quartis são separatrizes que dividem o conjunto de dados em quatro partes iguais. O primeiro quartil (ou inferior) delimita os 25% menores valores, o segundo representa a mediana, e o terceiro delimita os 25% maiores valores. Inicialmente deve-se calcular a posição do quartil:
 
-$$S^2=\frac{\sum\limits_{i=1}^{n}\left(X_i - \bar{X}\right)^2}{n-1}$$
+-   Posição do primeiro quartil $P_1$: $$P_1=\frac{n+1}{4}$$
+
+-   Posição da mediana (segundo quartil) $P_2$: $$P_2 = \frac{n+1}{2}$$
+
+-   Posição do terceiro quartil $P_3$: $$P_3=\frac{3 \times (n+1)}{4}$$
+
+Com $n$ sendo o tamanho da amostra. Dessa forma, $X_{\left( P_i \right)}$ é o valor do $i$-ésimo quartil, onde $X_{\left( j \right)}$ representa a $j$-ésima observação dos dados ordenados.
+
+Se o cálculo da posição resultar em uma fração, deve-se fazer a média entre o valor que está na posição do inteiro anterior e do seguinte ao da posição.
+
+## Coeficiente de Variação
+
+O coeficiente de variação fornece a dispersão dos dados em relação à média. Quanto menor for o seu valor, mais homogêneos serão os dados. O coeficiente de variação é considerado baixo (apontando um conjunto de dados homogêneo) quando for menor ou igual a 25%. Ele é dado pela fórmula:
+
+$$C_V=\frac{S}{\bar{X}}\times 100$$
 
 Com:
 
--   $X_i =$ i-ésima observação da amostra
+-   $S =$ desvio padrão amostral
 
 -   $\bar{X} =$ média amostral
-
--   $n =$ tamanho da amostra
-
 ## Desvio Padrão
 
 O desvio padrão é a raiz quadrada da variância. Ele avalia o quanto os dados estão dispersos em relação à média.
@@ -116,32 +103,6 @@ Com:
 
 -   $N =$ tamanho da população
 
-### Desvio Padrão Amostral
-
-Para uma amostra, o desvio padrão é dado por:
-
-$$S=\sqrt{\frac{\sum\limits_{i=1}^{n}\left(X_i - \bar{X}\right)^2}{n-1}}$$
-
-Com:
-
--   $X_i =$ i-ésima observação da amostra
-
--   $\bar{X} =$ média amostral
-
--   $n =$ tamanho da amostra
-
-## Coeficiente de Variação
-
-O coeficiente de variação fornece a dispersão dos dados em relação à média. Quanto menor for o seu valor, mais homogêneos serão os dados. O coeficiente de variação é considerado baixo (apontando um conjunto de dados homogêneo) quando for menor ou igual a 25%. Ele é dado pela fórmula:
-
-$$C_V=\frac{S}{\bar{X}}\times 100$$
-
-Com:
-
--   $S =$ desvio padrão amostral
-
--   $\bar{X} =$ média amostral
-
 ## Boxplot
 
 O boxplot é uma representação gráfica na qual se pode perceber de forma mais clara como os dados estão distribuídos. A figura abaixo ilustra um exemplo de boxplot.
@@ -149,6 +110,12 @@ O boxplot é uma representação gráfica na qual se pode perceber de forma mais
 ![Exemplo de boxplot](images/box_uni.png){fig-align="center"}
 
 A porção inferior do retângulo diz respeito ao primeiro quartil, enquanto a superior indica o terceiro quartil. Já o traço no interior do retângulo representa a mediana do conjunto de dados, ou seja, o valor em que o conjunto de dados é dividido em dois subconjuntos de mesmo tamanho. A média é representada pelo losango branco e os pontos são *outliers*. Os *outliers* são valores discrepantes da série de dados, ou seja, valores que não demonstram a realidade de um conjunto de dados.
+
+## Histograma
+
+O histograma é uma representação gráfica utilizada para a visualização da distribuição dos dados e pode ser construído por valores absolutos, frequência relativa ou densidade. A figura abaixo ilustra um exemplo de histograma.
+
+![Exemplo de histograma](images/hist_uni.png){fig-align="center"}
 
 ## Gráfico de Dispersão
 
@@ -171,3 +138,22 @@ As variáveis quantitativas são as variáveis numéricas, que representam carac
 
 -   **Discretas**: quando os possíveis valores são enumeráveis (exemplos: número de filhos, número de cigarros fumados, etc)
 -   **Contínuas**: quando os possíveis valores são resultado de medições (exemplos: massa, altura, tempo, etc)
+
+## Coeficiente de Correlação de Pearson
+
+O coeficiente de correlação de Pearson é uma medida que verifica o grau de relação linear entre duas variáveis quantitativas. Este coeficiente varia entre os valores -1 e 1. O valor zero significa que não há relação linear entre as variáveis. Quando o valor do coeficiente $r$ é negativo, diz-se existir uma relação de grandeza inversamente proporcional entre as variáveis. Analogamente, quando $r$ é positivo, diz-se que as duas variáveis são diretamente proporcionais.
+
+O coeficiente de correlação de Pearson é normalmente representado pela letra $r$ e a sua fórmula de cálculo é:
+
+$$
+r_{Pearson} = \frac{\displaystyle \sum_{i=1}^{n} \left [ \left(x_i-\bar{x}\right) \left(y_i-\bar{y}\right) \right]}{\sqrt{\displaystyle \sum_{i=1}^{n} x_i^2 - n\bar{x}^2}  \times \sqrt{\displaystyle \sum_{i=1}^{n} y_i^2 - n\bar{y}^2}}
+$$
+
+Onde:
+
+-   $x_i =$ i-ésimo valor da variável $X$
+-   $y_i =$ i-ésimo valor da variável $Y$
+-   $\bar{x} =$ média dos valores da variável $X$
+-   $\bar{y} =$ média dos valores da variável $Y$
+
+Vale ressaltar que o coeficiente de Pearson é paramétrico e, portanto, sensível quanto à normalidade (simetria) dos dados.
